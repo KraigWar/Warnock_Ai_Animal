@@ -5,41 +5,25 @@ using UnityEngine;
 
 namespace NodeCanvas.Tasks.Actions {
 
-	public class PlaySound : ActionTask {
+	public class PlaySound : ActionTask
+	{
 
 		private AudioSource m_Source;
 		public AudioClip m_Clip;
-
-
-
-		protected override string OnInit() {
+		protected override string OnInit()
+		{
 			m_Source = agent.GetComponent<AudioSource>();
 
 			return null;
 		}
 
-		
-		protected override void OnExecute() {
+		protected override void OnExecute()
+		{
 
 			m_Source.clip = m_Clip;
 			m_Source.Play();
 
 			EndAction(true);
-		}
-
-		//Called once per frame while the action is active.
-		protected override void OnUpdate() {
-			
-		}
-
-		//Called when the task is disabled.
-		protected override void OnStop() {
-			
-		}
-
-		//Called when the task is paused.
-		protected override void OnPause() {
-			
 		}
 	}
 }
