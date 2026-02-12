@@ -21,8 +21,9 @@ namespace NodeCanvas.Tasks.Actions {
 		
 		protected override void OnUpdate() 
 		{
+			
 
-                if (timeSinceLastSampleBBP.value == 0 && isMovingBBP.value == false)
+                if (timeSinceLastSampleBBP.value == 0 && isMovingBBP.value == true)
 			{
 				Vector3 destination = CalulateTargetPosition();
 				if(NavMesh.SamplePosition(destination, out NavMeshHit hitInfo, wanderDistance + wanderRadius, NavMesh.AllAreas))
