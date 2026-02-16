@@ -5277,7 +5277,7 @@ GameObject:
   - component: {fileID: 1127472865}
   - component: {fileID: 1127472864}
   - component: {fileID: 1127472863}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6167,6 +6167,7 @@ MonoBehaviour:
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"CheckingTree":{"_name":"CheckingTree","_id":"58af90ec-fe11-4620-a7dd-6956aee48dc5","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"hasAttacked":{"_name":"hasAttacked","_id":"a18f3a15-c1ac-4017-bffd-fec579aae691","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"hasEaten":{"_name":"hasEaten","_id":"c6eca68b-ef57-45e6-9384-ba26959703a4","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"fruitsEaten":{"_name":"fruitsEaten","_id":"577ab18c-2704-4d09-a111-6286852cfebc","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
   _serializedVariables:
@@ -6191,6 +6192,9 @@ MonoBehaviour:
   - _json: '{"_name":"hasEaten","_id":"c6eca68b-ef57-45e6-9384-ba26959703a4","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
+  - _json: '{"_name":"fruitsEaten","_id":"577ab18c-2704-4d09-a111-6286852cfebc","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
 --- !u!114 &1290417019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6204,27 +6208,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _serializedExposedParameters: []
-  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[{"targetPositionBBP":{"_name":"targetPosition","_targetVariableID":"6f64df11-d02f-4414-bc8a-4bd134a94f70"},"timeSinceLastSampleBBP":{"_name":"timeSinceLastSample","_targetVariableID":"9cd1b33f-5f53-40e0-bb47-77f8b4664001"},"isMovingBBP":{"_name":"isMoving","_targetVariableID":"6aa7c4a4-15e5-4190-9977-bb006192241e"},"sampleRateInSeconds":0.5,"sampleRadiusInUnits":5.0,"$type":"NodeCanvas.Tasks.Actions.NavigationTask"},{"timeSinceLastSampleBBP":{"_name":"timeSinceLastSample","_targetVariableID":"9cd1b33f-5f53-40e0-bb47-77f8b4664001"},"TargetPositionBBP":{"_name":"targetPosition","_targetVariableID":"6f64df11-d02f-4414-bc8a-4bd134a94f70"},"isMovingBBP":{"_name":"isMoving","_targetVariableID":"6aa7c4a4-15e5-4190-9977-bb006192241e"},"DistanceToTree":{},"wanderDistance":6.0,"wanderRadius":2.0,"$type":"NodeCanvas.Tasks.Actions.WanderTask"},{"m_Clip":1,"$type":"NodeCanvas.Tasks.Actions.PlaySound"}]},"_color":{"r":0.3215686,"g":1.0,"b":0.3875761,"a":1.0},"_name":"Wander","_position":{"x":435.7867,"y":439.46},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_actionList":{"executionMode":1,"actions":[{"valueA":{"_name":"lastTree","_targetVariableID":"219f1a46-e199-4ebe-b926-5f1eb0a1fe89"},"valueB":{"_name":"CheckingTree","_targetVariableID":"58af90ec-fe11-4620-a7dd-6956aee48dc5"},"$type":"NodeCanvas.Tasks.Actions.SetVariable`1[[UnityEngine.GameObject,
-    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},{"valueA":{"_name":"targetPosition","_targetVariableID":"6f64df11-d02f-4414-bc8a-4bd134a94f70"},"valueB":{"_name":"CheckingTree","_targetVariableID":"58af90ec-fe11-4620-a7dd-6956aee48dc5"},"$type":"NodeCanvas.Tasks.Actions.SetVariable`1[[UnityEngine.Vector3,
-    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},{"dest":{"_name":"targetPosition","_targetVariableID":"6f64df11-d02f-4414-bc8a-4bd134a94f70"},"$type":"NodeCanvas.Tasks.Actions.SetNavMeshDest"},{"m_Clip":2,"$type":"NodeCanvas.Tasks.Actions.PlaySound"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Run
-    Towards Tree","_position":{"x":720.3647,"y":548.6525},"$type":"NodeCanvas.StateMachines.ActionState","$id":"1"},{"_actionList":{"executionMode":1,"actions":[{"treeToPunch":{"_name":"CheckingTree","_targetVariableID":"58af90ec-fe11-4620-a7dd-6956aee48dc5"},"$type":"NodeCanvas.Tasks.Actions.FaceTree"},{"angle":90.0,"$type":"NodeCanvas.Tasks.Actions.ArmAnimAT"},{"hasAttacked":{"_name":"hasAttacked","_targetVariableID":"a18f3a15-c1ac-4017-bffd-fec579aae691"},"currentTree":{"_name":"CheckingTree","_targetVariableID":"58af90ec-fe11-4620-a7dd-6956aee48dc5"},"animCurve":{"keys":[{"time":0.0,"value":0.0,"tangentMode":34,"inTangent":0.5,"outTangent":0.5},{"time":0.5,"value":0.25,"tangentMode":34,"inTangent":0.0,"outTangent":0.0},{"time":1.0,"value":0.0,"tangentMode":34,"inTangent":-0.5,"outTangent":-0.5}],"preWrapMode":8,"postWrapMode":8},"$type":"NodeCanvas.Tasks.Actions.PunchingTreeAT"},{"m_Clip":3,"$type":"NodeCanvas.Tasks.Actions.PlaySound"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Punch
-    Tree","_position":{"x":1038.239,"y":792.4291},"$type":"NodeCanvas.StateMachines.ActionState","$id":"2"},{"_actionList":{"executionMode":1,"actions":[{"angle":180.0,"$type":"NodeCanvas.Tasks.Actions.ArmAnimAT"},{"fruitPrefab":4,"fruitEaten":{},"hasEaten":{"_name":"hasEaten","_targetVariableID":"c6eca68b-ef57-45e6-9384-ba26959703a4"},"$type":"NodeCanvas.Tasks.Actions.EatingFoodAT"},{"m_Clip":5,"$type":"NodeCanvas.Tasks.Actions.PlaySound"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Eat
-    Fruit","_position":{"x":555.2123,"y":708.0279},"$type":"NodeCanvas.StateMachines.ActionState","$id":"3"},{"_nestedFSM":{"_value":6},"_position":{"x":212.028,"y":445.0588},"$type":"NodeCanvas.StateMachines.NestedFSMState"}],"connections":[{"_condition":{"conditions":[{"specifiedTagOnly":true,"objectTag":"tree","saveGameObjectAs":{"_name":"CheckingTree","_targetVariableID":"58af90ec-fe11-4620-a7dd-6956aee48dc5"},"$type":"NodeCanvas.Tasks.Conditions.CheckTrigger_Transform"},{"valueA":{"_name":"lastTree","_targetVariableID":"219f1a46-e199-4ebe-b926-5f1eb0a1fe89"},"valueB":{"_name":"CheckingTree","_targetVariableID":"58af90ec-fe11-4620-a7dd-6956aee48dc5"},"_invert":true,"$type":"NodeCanvas.Tasks.Conditions.CheckVariable`1[[UnityEngine.GameObject,
-    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}],"$type":"NodeCanvas.Framework.ConditionList"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"conditions":[{"checkTarget":{"_name":"CheckingTree","_targetVariableID":"58af90ec-fe11-4620-a7dd-6956aee48dc5"},"checkType":4,"distance":{"_value":2.0},"_isDisabled":true,"$type":"NodeCanvas.Tasks.Conditions.CheckDistanceToGameObject"},{"valueA":{"_name":"isMoving","_targetVariableID":"6aa7c4a4-15e5-4190-9977-bb006192241e"},"valueB":{},"_isDisabled":true,"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},{"$type":"NodeCanvas.Tasks.Conditions.PathPendingCT"}],"$type":"NodeCanvas.Framework.ConditionList"},"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"valueA":{"_name":"hasAttacked","_targetVariableID":"a18f3a15-c1ac-4017-bffd-fec579aae691"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"valueA":{"_name":"hasEaten","_targetVariableID":"c6eca68b-ef57-45e6-9384-ba26959703a4"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _boundGraphSerialization: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_nestedFSM":{"_value":1},"_name":"Catching","_position":{"x":212.028,"y":445.0588},"$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"0"},{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Evolve","_position":{"x":511.0676,"y":601.0796},"$type":"NodeCanvas.StateMachines.ActionState","$id":"1"},{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"GetCaught","_position":{"x":-28.00369,"y":542.0717},"$type":"NodeCanvas.StateMachines.ActionState","$id":"2"}],"connections":[{"_condition":{"valueA":{"_name":"fruitsEaten","_targetVariableID":"577ab18c-2704-4d09-a111-6286852cfebc"},"valueB":{"_value":3.0},"$type":"NodeCanvas.Tasks.Conditions.CheckVariable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
   _boundGraphObjectReferences:
   - {fileID: 0}
-  - {fileID: 8300000, guid: f6babc856b51b00479e9c17e59dad53d, type: 3}
-  - {fileID: 8300000, guid: 8509c6047c66f974a821a650d4abb458, type: 3}
-  - {fileID: 8300000, guid: 345bbcba66e61144aa819847995cd7eb, type: 3}
-  - {fileID: 7292245174365729585, guid: b679e757befa3854e9f2b2bb04aa16ad, type: 3}
-  - {fileID: 8300000, guid: 83cc2970ce9a8f6419699d6174cd4a1b, type: 3}
   - {fileID: 11400000, guid: 5db638dffc17d7043b4866e7bda6402c, type: 2}
   _boundGraphSource:
     _version: 3.33
     _category: 
     _comments: 
-    _translation: {x: 303, y: -285}
-    _zoomFactor: 0.99986786
+    _translation: {x: 560, y: -158}
+    _zoomFactor: 1
   _firstActivation: 0
   _enableAction: 0
   _disableAction: 0
@@ -7030,7 +7024,7 @@ Transform:
   m_GameObject: {fileID: 1353919683}
   serializedVersion: 2
   m_LocalRotation: {x: -0.011901804, y: -0.35115165, z: -0.0044639977, w: 0.9362324}
-  m_LocalPosition: {x: 15.9, y: 3.38, z: -22.27}
+  m_LocalPosition: {x: 7.44, y: 10.1, z: -4.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9587,7 +9581,7 @@ Transform:
   m_GameObject: {fileID: 1855237078}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -9.06, y: 2, z: 12.45}
+  m_LocalPosition: {x: -9.06, y: 0.95, z: 12.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9600,7 +9594,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855237078}
-  m_Enabled: 0
+  m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 5
