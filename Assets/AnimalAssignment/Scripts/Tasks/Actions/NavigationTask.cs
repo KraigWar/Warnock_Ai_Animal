@@ -7,10 +7,11 @@ namespace NodeCanvas.Tasks.Actions {
 
 	public class NavigationTask : ActionTask {
 
-
+		//setting up the position where the animal will go, tracking the time since its scanned, and to check if its moving
 		public BBParameter<Vector3> targetPositionBBP;
         public BBParameter<float> timeSinceLastSampleBBP;
 		public BBParameter<bool> isMovingBBP;
+
 
 		public float sampleRateInSeconds;
 		public float sampleRadiusInUnits;
@@ -18,7 +19,7 @@ namespace NodeCanvas.Tasks.Actions {
 		private Vector3 lastTargetPosition;
 		private NavMeshAgent navAgent;
 
-
+		//get the nav mesh for the animal to walk on
         protected override string OnInit() {
 			navAgent = agent.GetComponent<NavMeshAgent>();
 			if (navAgent == null)
@@ -29,6 +30,7 @@ namespace NodeCanvas.Tasks.Actions {
 
 		protected override void OnUpdate()
 		{
+			//start the sample can and check if the target position is not equal to the last one, to then set the destination for the animal to walk to
 			timeSinceLastSampleBBP.value += Time.deltaTime;
 			if (timeSinceLastSampleBBP.value > sampleRateInSeconds)
 			{
@@ -42,11 +44,11 @@ namespace NodeCanvas.Tasks.Actions {
 						navAgent.SetDestination(hitInfo.position);
 					}
 				}
-				//Debug.Log($"{navAgent.destination}, {agent.transform.position}, {Vector3.Distance(new Vector3(agent.transform.position.x, 0, agent.transform.position.z),new Vector3(navAgent.destination.x, 0, navAgent.destination.z))<0.1f}");
 				isMovingBBP.value =
 					navAgent.remainingDistance <= 0.1f  &&
 					navAgent.remainingDistance != Mathf.Infinity ||
 					navAgent.pathPending;
+				/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			}
 		}
 	}

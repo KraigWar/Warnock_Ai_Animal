@@ -6,7 +6,9 @@ namespace NodeCanvas.Tasks.Actions {
 
 	public class EvolveAT : ActionTask {
 
+		//boolean to check if hes done evolving
 		public BBParameter<bool> finishedEvo;
+		//the timer set for the entire audio to play
 		private float timeForEvolve;
 
 		protected override string OnInit() {
@@ -15,7 +17,7 @@ namespace NodeCanvas.Tasks.Actions {
 
 
 		protected override void OnExecute() {
-
+			//increase the size of the animal
 			agent.transform.localScale = agent.transform.localScale + new Vector3(2, 2, 2) / 4;
 
 			
@@ -24,7 +26,7 @@ namespace NodeCanvas.Tasks.Actions {
 
 		protected override void OnUpdate()
 		{
-
+			//increase the time so the entire plays and when its dine (3 seconds), set the boolean to know its done evolving for state transitions
 			timeForEvolve += Time.deltaTime;
 			if (timeForEvolve > 3f)
 			{
