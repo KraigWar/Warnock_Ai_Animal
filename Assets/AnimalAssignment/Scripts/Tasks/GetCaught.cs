@@ -9,26 +9,32 @@ namespace NodeCanvas.Tasks.Actions {
 
         public GameObject pokeball;
         private GameObject spawnedBall;
+
+        private float destroyTimer;
+
         protected override string OnInit() {
 			return null;
 		}
 
-		//This is called once each time the task is enabled.
-		//Call EndAction() to mark the action as finished, either in success or failure.
-		//EndAction can be called from anywhere.
+		
 		protected override void OnExecute() {
 
 			
 
             spawnedBall = GameObject.Instantiate(pokeball);
             spawnedBall.transform.position = new Vector3(agent.transform.position.x, agent.transform.position.y + 1, agent.transform.position.z);
-
-            GameObject.Destroy(agent);
+			agent.transform.localScale = new Vector3(0,0,0);
+            
         }
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
 			
+			destroyTimer += Time.deltaTime;
+			if(destroyTimer > 4)
+			{
+				GameObject.Destroy(agent.gameObject);
+			}
 		}
 
 		//Called when the task is disabled.
