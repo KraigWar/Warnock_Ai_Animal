@@ -8,6 +8,7 @@ TagManager:
   - tree
   - Larm
   - Rarm
+  - PlayerTrainer
   layers:
   - Default
   - TransparentFX

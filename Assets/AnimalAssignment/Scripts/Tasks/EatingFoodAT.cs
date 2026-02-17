@@ -11,22 +11,26 @@ namespace NodeCanvas.Tasks.Actions {
 		private float destroyTimer;
 		private GameObject spawnedFruit;
 
-		public BBParameter<float> fruitEaten;
+		public BBParameter<float> fruitsEaten;
 
-		public BBParameter<bool> hasEaten; 
+		public BBParameter<bool> hasEaten;
+		public BBParameter<bool> evolving;
+
 		protected override string OnInit() {
+            evolving.value = false;
 			return null;
 		}
 
 		
 		protected override void OnExecute() {
 
-            fruitEaten.value++;
+            fruitsEaten.value++;
+			
 
 			destroyTimer = 0;
 			hasEaten.value = false;
 			spawnedFruit = GameObject.Instantiate(fruitPrefab);
-			spawnedFruit.transform.position = new Vector3(agent.transform.position.x, agent.transform.position.y +2, agent.transform.position.z);
+			spawnedFruit.transform.position = new Vector3(agent.transform.position.x, agent.transform.position.y + 2.75f, agent.transform.position.z);
 
             
 		}
@@ -34,7 +38,8 @@ namespace NodeCanvas.Tasks.Actions {
 
 		protected override void OnUpdate()
 		{
-			destroyTimer += Time.deltaTime;
+            
+            destroyTimer += Time.deltaTime;
 			if (destroyTimer > 5)
 			{
 				GameObject.Destroy(spawnedFruit);
@@ -42,5 +47,12 @@ namespace NodeCanvas.Tasks.Actions {
                 
             }
 		}
+        protected override void OnStop()
+        {
+            if (fruitsEaten.value == 3)
+            {
+                evolving.value = true;
+            }
+        }
 	}
 }
