@@ -10,7 +10,9 @@ namespace NodeCanvas.Tasks.Actions
 
         private Transform Larm;
         private Transform Rarm;
-        public float angle;
+        public float Xangle;
+        public float Yangle;
+        public float Zangle;
         protected override string OnInit()
         {
 
@@ -23,15 +25,15 @@ namespace NodeCanvas.Tasks.Actions
         protected override void OnExecute()
         {
 
-            Larm.transform.Rotate(new Vector3(Larm.rotation.x, angle, Larm.rotation.z));
-            Rarm.transform.Rotate(new Vector3(Rarm.rotation.x, angle, Rarm.rotation.z));
+            Larm.transform.Rotate(new Vector3(Xangle, Yangle, Zangle));
+            Rarm.transform.Rotate(new Vector3(Xangle, Yangle, Zangle));
             
         }
 
         protected override void OnStop()
         {
-            Larm.transform.Rotate(new Vector3(Larm.rotation.x, -angle, Larm.rotation.z));
-            Rarm.transform.Rotate(new Vector3(Rarm.rotation.x, -angle, Rarm.rotation.z));
+            Larm.transform.Rotate(new Vector3(-Xangle, -Yangle, -Zangle));
+            Rarm.transform.Rotate(new Vector3(-Xangle, -Yangle, -Zangle));
         }
 
     }
